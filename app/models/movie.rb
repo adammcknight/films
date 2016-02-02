@@ -3,5 +3,12 @@ class Movie < ActiveRecord::Base
 	
 	validates :title, :released_on, presence: true
 	
-	#validates_inclusion_of :rating, in:("PG", "12", "18")
+	validate :must_have_valid_trailer
+	def must_have_valid_trailer
+		unless trailer.include?("<iframe")
+			errors.add(:trailer, "Must include an iFrame tag")
+		end
+	end
 end
+	
+	#validates_inclusion_of :rating, in:("PG", "12", "18")

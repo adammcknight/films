@@ -2,6 +2,7 @@
 
 <h1>Listing Movies</h1>
 
+<%= will_paginate @movies %>
 <table>
   <thead>
     <tr>
@@ -23,7 +24,7 @@
         <td><%= movie.trailer %></td>
         <td><%= movie.released_on %></td>
         <td><%= movie.rating %></td>
-        <td><%= movie.genre.name %></td>
+        <td><%= movie.genre_id %></td>
         <td><%= link_to 'Show', movie %></td>
         <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
         <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
